@@ -21,8 +21,8 @@ export default function TodoForm(props) {
     }
     return(
         <form>
-            <input onChange={handleChange} type="text" value={text}></input>
-            <button onClick={addItem}>ADD</button>
+            <input onChange={handleChange} placeholder="Adicione um item a lista" type="text" value={text}></input>
+            <button onClick={addItem}>Adicionar</button>
         </form>
 
     )
