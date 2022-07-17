@@ -124,13 +124,14 @@ ul{
         font-size: 25px;
     }
     form input{
+        width: 250px;
         margin: 10px;
+        font-size: 13px;
     }
     form button{
         margin-top: 10px;
     }
     .card{
-        align-self: flex-start;
         width: 250px;
         height: 30px;
         margin: 20px 0;
