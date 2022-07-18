@@ -9,6 +9,8 @@ const SAVED_ITEMS = "savedItems";
 
 function Todo(){
 
+
+    const [showModal, setShowModal] = useState(false)
     const [items, setItems] = useState([])
 
     useEffect(() => {
@@ -32,6 +34,7 @@ function Todo(){
     function onItemDeleted(item){
         let filteredItems = items.filter(it => it.id !== item.id)
         setItems(filteredItems)
+        onHideModal()
     }
 
     function onDone(item){
@@ -43,18 +46,26 @@ function Todo(){
         })
         setItems(updateditems)
     }
+    function onHideModal(){
+        setShowModal(false)
+        
+    }
 
     return(
         <div className="container">
             <header className="header">
                 <h1>Lista de Compras</h1>
-                <button className="addButton">+</button>
+                <button 
+                onClick={() => { setShowModal(true)}} 
+                className="addButton">
+                +
+                </button>
             </header> 
             {/* <TodoForm onAddItem={onAddItem}></TodoForm> */}
 
             <List onDone={onDone} onItemDeleted={onItemDeleted} items={items}></List>
 
-            <Modal><TodoForm onAddItem={onAddItem}></TodoForm></Modal>
+            <Modal show={showModal} onHideModal={onHideModal} ><TodoForm onAddItem={onAddItem}></TodoForm></Modal>
         </div>
     )
 }
